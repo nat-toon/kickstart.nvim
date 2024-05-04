@@ -14,6 +14,7 @@ return {
     { '<C-n>', ':Neotree filesystem reveal left<CR>', { desc = 'NeoTree reveal' } },
   },
   opts = {
+    auto_clean_after_session_restore = false,
     filesystem = {
       window = {
         mappings = {
