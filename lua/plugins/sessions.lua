@@ -10,6 +10,7 @@ return {
         'alpha',
       },
       auto_session_enable_last_session = false,
+      post_restore_cmds = { 'Neotree filesystem reveal left' },
       session_lens = {
         buftypes_to_ignore = {},
         load_on_setup = true,

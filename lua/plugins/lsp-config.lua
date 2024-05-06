@@ -144,6 +144,7 @@ return { -- LSP Configuration & Plugins
     --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+    capabilities.textDocument.completion.completionItem.snippetSupport = true
 
     -- Enable the following language servers
     --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -182,6 +183,21 @@ return { -- LSP Configuration & Plugins
           },
         },
       },
+      -- html = {
+      --   capabilities = capabilities,
+      --   on_attach = function(client, bufnr)
+      --     client.server_capabilities.document_formatting = false
+      --     on_attach(client, bufnr)
+      --   end,
+      --   init_options = {
+      --     configurationSection = { 'html', 'css', 'javascript' },
+      --     embeddedLanguages = {
+      --       css = true,
+      --       javascript = true,
+      --     },
+      --     provideFormatter = true,
+      --   },
+      -- },
     }
 
     -- Ensure the servers and tools above are installed
@@ -197,6 +213,10 @@ return { -- LSP Configuration & Plugins
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
+      'prettier', -- prettier formatter
+      -- 'isort', -- python formatter
+      -- 'black', -- python formatter
+      -- 'pylint', -- python linter
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

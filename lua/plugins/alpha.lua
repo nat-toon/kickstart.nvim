@@ -57,7 +57,7 @@ return {
       dashboard.button('f', '   Find file', ':Telescope find_files<CR>'),
       dashboard.button('w', '󰱼   Find word', ':Telescope live_grep<CR>'),
       dashboard.button('c', '   Config', ':e $MYVIMRC <CR>'),
-      dashboard.button('r', '󰈚   Restore Session', ':SessionRestore<CR> | :Neotree filesystem reveal left<CR>'),
+      dashboard.button('r', '󰈚   Restore Session', ':SessionRestore<CR>'),
       dashboard.button('q', '   Quit NVIM', ':qa<CR>'),
     }
     alpha.setup(dashboard.opts)
