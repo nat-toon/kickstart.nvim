@@ -183,21 +183,21 @@ return { -- LSP Configuration & Plugins
           },
         },
       },
-      -- html = {
-      --   capabilities = capabilities,
-      --   on_attach = function(client, bufnr)
-      --     client.server_capabilities.document_formatting = false
-      --     on_attach(client, bufnr)
-      --   end,
-      --   init_options = {
-      --     configurationSection = { 'html', 'css', 'javascript' },
-      --     embeddedLanguages = {
-      --       css = true,
-      --       javascript = true,
-      --     },
-      --     provideFormatter = true,
-      --   },
-      -- },
+      html = {
+        capabilities = capabilities,
+        on_attach = function(client, bufnr)
+          client.server_capabilities.document_formatting = false
+          on_attach(client, bufnr)
+        end,
+        init_options = {
+          configurationSection = { 'html', 'css', 'javascript' },
+          embeddedLanguages = {
+            css = true,
+            javascript = true,
+          },
+          provideFormatter = true,
+        },
+      },
     }
 
     -- Ensure the servers and tools above are installed
