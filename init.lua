@@ -46,7 +46,7 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
 -- NOTE: Plugins can specify dependencies.
 ---@diagnostic disable-next-line: param-type-mismatch
-require('lazy').setup("plugins")
+require('lazy').setup 'plugins'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

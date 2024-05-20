@@ -158,7 +158,7 @@ return { -- LSP Configuration & Plugins
     local servers = {
       -- clangd = {},
       -- gopls = {},
-      -- pyright = {},
+      pyright = {},
       -- rust_analyzer = {},
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
       --
@@ -185,21 +185,23 @@ return { -- LSP Configuration & Plugins
       },
       html = {
         capabilities = capabilities,
-        on_attach = function(client, bufnr)
-          client.server_capabilities.document_formatting = false
-          on_attach(client, bufnr)
-        end,
-        init_options = {
-          configurationSection = { 'html', 'css', 'javascript' },
-          embeddedLanguages = {
-            css = true,
-            javascript = true,
+        opts = {
+          settings = {
+            html = {
+              format = {
+                templating = true,
+                wrapLineLength = 120,
+                wrapAttributes = 'auto',
+              },
+              hover = {
+                documentation = true,
+                references = true,
+              },
+            },
           },
-          provideFormatter = true,
         },
       },
     }
-
     -- Ensure the servers and tools above are installed
     --  To check the current status of installed tools and/or manually install
     --  other tools, you can run
@@ -214,9 +216,9 @@ return { -- LSP Configuration & Plugins
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
       'prettier', -- prettier formatter
-      -- 'isort', -- python formatter
-      -- 'black', -- python formatter
-      -- 'pylint', -- python linter
+      'isort', -- python formatter
+      'black', -- python formatter
+      'pylint', -- python linter
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
