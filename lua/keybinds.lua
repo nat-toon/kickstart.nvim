@@ -47,3 +47,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+vim.keymap.set('n', '<leader>y', '"+y', { desc = 'yank to system' })
+vim.keymap.set('n', '<leader>d', '"+d', { desc = 'delete to system' })
+vim.keymap.set('n', '<leader>c', '"+c', { desc = 'change and copy to system' })
+vim.keymap.set('n', '<leader>p', '"+p', { desc = 'paste from system' })
