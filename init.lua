@@ -50,3 +50,12 @@ require('lazy').setup 'plugins'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- Add to runtimepath
+vim.opt.runtimepath:append("~/.vim")
+
+-- Set packpath to runtimepath
+vim.opt.packpath = vim.opt.runtimepath:get()
+
+-- Source your .vimrc file
+vim.cmd("source ~/.vimrc")
