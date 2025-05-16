@@ -1038,15 +1038,6 @@ vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
 vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
 vim.o.expandtab = true
 
--- Add to runtimepath
-vim.opt.runtimepath:append '~/.vim'
-
--- Set packpath to runtimepath
-vim.opt.packpath = vim.opt.runtimepath:get()
-
--- Source your .vimrc file
-vim.cmd 'source ~/.vimrc'
-
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'html',
   callback = function(event)
@@ -1058,3 +1049,7 @@ vim.api.nvim_create_autocmd('FileType', {
     )
   end,
 })
+
+vim.keymap.set('n', '<leader>y', '"+y', { desc = '[Y]ank to system clipboard' })
+vim.keymap.set('n', '<leader>d', '"+d', { desc = '[D]elete and yank to system clipboard' })
+vim.keymap.set('n', '<leader>p', '"+p', { desc = '[P]aste from system clipboard' })
